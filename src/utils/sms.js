@@ -34,7 +34,7 @@ async function sendViaImsSms(to, body) {
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-    body: JSON.stringify({ to, message: body, sender: process.env.IMS_SENDER_NAME || "OTPGuard" })
+    body: JSON.stringify({ to, message: body, sender: process.env.IMS_SENDER_NAME || "OTPProvider" })
   });
   const data = await res.json().catch(() => ({}));
   return { ok: res.ok, data };

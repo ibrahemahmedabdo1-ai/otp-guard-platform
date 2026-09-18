@@ -54,7 +54,7 @@ const DEFAULT_DATA = {
   // ٣ لغات للموقع — مخزنة هنا (وليس كملفات) عشان تشتغل على Vercel/serverless بدون مشاكل كتابة على القرص
   languages: {
     ar: {
-      brand: "OTP Guard", nav_login: "تسجيل الدخول", nav_register: "حساب جديد",
+      brand: "OTP Provider", nav_login: "تسجيل الدخول", nav_register: "حساب جديد",
       landing_title: "تحقق من عملائك بثقة عبر واتساب، إيميل أو SMS",
       landing_subtitle: "منصة واحدة تربط شركتك بعملائها للتحقق الفوري من الهوية ورقم الهاتف",
       cta_start: "ابدأ الآن مجانًا", login_title: "تسجيل الدخول", register_title: "إنشاء حساب جديد",
@@ -64,7 +64,7 @@ const DEFAULT_DATA = {
       logout: "تسجيل خروج", language: "اللغة", pricing_title: "الأسعار"
     },
     en: {
-      brand: "OTP Guard", nav_login: "Login", nav_register: "Sign Up",
+      brand: "OTP Provider", nav_login: "Login", nav_register: "Sign Up",
       landing_title: "Verify your customers confidently via WhatsApp, Email or SMS",
       landing_subtitle: "One platform connecting your company to your customers for instant verification",
       cta_start: "Start Free Now", login_title: "Login", register_title: "Create New Account",
@@ -74,7 +74,7 @@ const DEFAULT_DATA = {
       logout: "Logout", language: "Language", pricing_title: "Pricing"
     },
     fr: {
-      brand: "OTP Guard", nav_login: "Connexion", nav_register: "Inscription",
+      brand: "OTP Provider", nav_login: "Connexion", nav_register: "Inscription",
       landing_title: "Verifiez vos clients en toute confiance via WhatsApp, Email ou SMS",
       landing_subtitle: "Une seule plateforme reliant votre entreprise a vos clients",
       cta_start: "Commencer Gratuitement", login_title: "Connexion", register_title: "Creer un compte",

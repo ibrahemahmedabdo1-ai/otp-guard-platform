@@ -27,7 +27,7 @@ router.get("/system/seed", async (req, res) => {
       db.users.push({
         id: uuidv4(),
         name: "Admin",
-        email: "admin@otpguard.com",
+        email: "admin@otpprovider.com",
         passwordHash,
         role: "admin",
         country: "N/A",
@@ -36,7 +36,7 @@ router.get("/system/seed", async (req, res) => {
         balance: 0,
         createdAt: new Date().toISOString(),
       });
-      log.push("تم إنشاء حساب الأدمن: admin@otpguard.com / Admin@12345");
+      log.push("تم إنشاء حساب الأدمن: admin@otpprovider.com / Admin@12345");
     } else {
       log.push("حساب الأدمن موجود بالفعل");
     }
@@ -46,7 +46,7 @@ router.get("/system/seed", async (req, res) => {
       db.users.push({
         id: uuidv4(),
         name: "Support Agent",
-        email: "support@otpguard.com",
+        email: "support@otpprovider.com",
         passwordHash,
         role: "support",
         country: "N/A",
@@ -55,7 +55,7 @@ router.get("/system/seed", async (req, res) => {
         balance: 0,
         createdAt: new Date().toISOString(),
       });
-      log.push("تم إنشاء حساب السبورت: support@otpguard.com / Support@12345");
+      log.push("تم إنشاء حساب السبورت: support@otpprovider.com / Support@12345");
     }
 
     await writeDb(db);

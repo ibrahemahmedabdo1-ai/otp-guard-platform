@@ -27,8 +27,8 @@
   <circle cx="58" cy="44" r="3" fill="url(#dotGrad)" opacity="0.4"/>
 
   <!-- Wordmark -->
-  <text x="72" y="34" font-family="'Segoe UI', 'Cairo', Arial, sans-serif" font-size="22" font-weight="700" fill="#0F172A">
-    OTP<tspan fill="#0EA5A5">Guard</tspan>
+  <text x="72" y="34" font-family="'Segoe UI', 'Cairo', Arial, sans-serif" font-size="20" font-weight="700" fill="#0F172A">
+    OTP<tspan fill="#0EA5A5"> Provider</tspan>
   </text>
   <text x="72" y="48" font-family="'Segoe UI', 'Cairo', Arial, sans-serif" font-size="9" fill="#64748B" letter-spacing="1.5">
     VERIFY WITH CONFIDENCE

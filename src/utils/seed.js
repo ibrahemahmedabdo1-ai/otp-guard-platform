@@ -12,7 +12,7 @@ async function seed() {
     db.users.push({
       id: uuidv4(),
       name: "Admin",
-      email: "admin@otpguard.com",
+      email: "admin@otpprovider.com",
       passwordHash,
       role: "admin",
       country: "N/A",
@@ -21,7 +21,7 @@ async function seed() {
       balance: 0,
       createdAt: new Date().toISOString()
     });
-    console.log("تم إنشاء حساب أدمن: admin@otpguard.com / Admin@12345");
+    console.log("تم إنشاء حساب أدمن: admin@otpprovider.com / Admin@12345");
   }
 
   if (!db.users.find(u => u.role === "support")) {
@@ -29,7 +29,7 @@ async function seed() {
     db.users.push({
       id: uuidv4(),
       name: "Support Agent",
-      email: "support@otpguard.com",
+      email: "support@otpprovider.com",
       passwordHash,
       role: "support",
       country: "N/A",
@@ -38,7 +38,7 @@ async function seed() {
       balance: 0,
       createdAt: new Date().toISOString()
     });
-    console.log("تم إنشاء حساب سبورت: support@otpguard.com / Support@12345");
+    console.log("تم إنشاء حساب سبورت: support@otpprovider.com / Support@12345");
   }
 
   await writeDb(db);
