@@ -5,94 +5,259 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OTP Provider — تحقق من عملائك بثقة</title>
 <link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/landing.css">
 </head>
-<body>
-  <nav class="navbar">
-    <div class="logo"><img src="/assets/img/logo.svg" alt="OTP Provider"></div>
-    <div class="nav-links">
-      <select id="langSelect" class="lang-select">
-        <option value="ar">العربية</option>
-        <option value="en">English</option>
-        <option value="fr">Français</option>
-      </select>
-      <a href="/pricing.html" class="btn btn-outline" data-i18n="pricing_title">الأسعار</a>
-      <a href="/login.html" class="btn btn-outline" data-i18n="nav_login">تسجيل الدخول</a>
-      <a href="/register.html" class="btn btn-primary" data-i18n="nav_register">حساب جديد</a>
+<body class="page-landing">
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a href="/" class="brand">
+        <span class="brand-icon">✓</span>
+        <span class="brand-text">
+          <b>OTP<span>Provider</span></b>
+          <small>Secure · Fast · Global</small>
+        </span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="/" class="active" data-i18n="nav_home">الرئيسية</a>
+        <a href="#services" data-i18n="nav_services">الخدمات</a>
+        <a href="#packages" data-i18n="nav_packages">الباقات</a>
+        <a href="#api" data-i18n="nav_api">API</a>
+        <a href="#about" data-i18n="nav_about">من نحن</a>
+        <a href="#contact" data-i18n="nav_contact">تواصل معنا</a>
+      </nav>
+
+      <div class="nav-actions">
+        <select id="langSelect" class="lang-select">
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+        </select>
+        <a href="/login.html" class="btn btn-outline" data-i18n="nav_login">تسجيل الدخول</a>
+        <a href="/register.html" class="btn btn-primary" data-i18n="nav_register">حساب جديد</a>
+      </div>
     </div>
-  </nav>
+  </header>
 
   <!-- شريط أخبار متحرك -->
   <div class="news-ticker">
-    <div class="ticker-track">
-      <span>🚀 منصة OTP Provider — تحقق فوري عبر واتساب، إيميل وSMS</span>
-      <span>⚡ تكامل مباشر مع Twilio وبوابات SMS المحلية</span>
-      <span>🛡️ حماية وتشفير كامل لبيانات عملائك</span>
-      <span>💬 دعم فني متاح على مدار الساعة</span>
-      <span>📦 باقات مرنة تناسب كل حجم أعمال</span>
+    <div class="ticker-inner">
+      <span class="ticker-label" data-i18n="ticker_label">📢 آخر الأخبار</span>
+      <div class="ticker-track">
+        <span data-i18n="ticker_1">🚀 منصة OTP Provider — تحقق فوري عبر واتساب، إيميل وSMS</span>
+        <span data-i18n="ticker_2">⚡ تكامل مباشر مع Twilio وبوابات SMS المحلية</span>
+        <span data-i18n="ticker_3">🛡️ حماية وتشفير كامل لبيانات عملائك</span>
+        <span data-i18n="ticker_4">💬 دعم فني متاح على مدار الساعة</span>
+        <span data-i18n="ticker_5">📦 باقات مرنة تناسب كل حجم أعمال</span>
+        <!-- مكررة عشان الشريط يبان متصل بدون فراغ -->
+        <span data-i18n="ticker_1">🚀 منصة OTP Provider — تحقق فوري عبر واتساب، إيميل وSMS</span>
+        <span data-i18n="ticker_2">⚡ تكامل مباشر مع Twilio وبوابات SMS المحلية</span>
+        <span data-i18n="ticker_3">🛡️ حماية وتشفير كامل لبيانات عملائك</span>
+        <span data-i18n="ticker_4">💬 دعم فني متاح على مدار الساعة</span>
+        <span data-i18n="ticker_5">📦 باقات مرنة تناسب كل حجم أعمال</span>
+      </div>
+      <div class="ticker-nav">
+        <button type="button" aria-label="السابق">‹</button>
+        <button type="button" aria-label="التالي">›</button>
+      </div>
     </div>
   </div>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-inner">
-      <h1 data-i18n="landing_title">تحقق من عملائك بثقة عبر واتساب، إيميل أو SMS</h1>
-      <p data-i18n="landing_subtitle">منصة واحدة تربط شركتك بعملائها للتحقق الفوري من الهوية ورقم الهاتف</p>
-      <a href="/register.html" class="btn btn-primary" data-i18n="cta_start">ابدأ الآن مجانًا</a>
+    <div class="hero-grid">
+
+      <div class="hero-copy">
+        <div class="badge" data-i18n="hero_badge">منصة تحقق OTP عالمية</div>
+
+        <h1>
+          <span data-i18n="landing_title_1">تحقق من عملائك</span><br>
+          <span class="grad" data-i18n="landing_title_2">بثقة، أينما كانوا.</span>
+        </h1>
+
+        <p data-i18n="landing_subtitle">منصة واحدة تربط شركتك بعملائها للتحقق الفوري من الهوية ورقم الهاتف عبر واتساب، إيميل أو SMS.</p>
+
+        <div class="hero-actions">
+          <a href="/register.html" class="btn btn-primary" data-i18n="cta_start">ابدأ الآن مجانًا →</a>
+          <a href="#packages" class="btn btn-outline" data-i18n="cta_packages">اطّلع على الباقات</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-icon">ϟ</div>
+            <div>
+              <strong data-i18n="stat1_title">تسليم فوري</strong>
+              <small data-i18n="stat1_sub">خلال ثوانٍ</small>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat-icon">♢</div>
+            <div>
+              <strong data-i18n="stat2_title">99.9% تشغيل</strong>
+              <small data-i18n="stat2_sub">اعتمادية وثبات</small>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat-icon">◎</div>
+            <div>
+              <strong data-i18n="stat3_title">تغطية عالمية</strong>
+              <small data-i18n="stat3_sub">+200 دولة</small>
+            </div>
+          </div>
+          <div class="stat">
+            <div class="stat-icon">♙</div>
+            <div>
+              <strong data-i18n="stat4_title">أمان بنكي</strong>
+              <small data-i18n="stat4_sub">بياناتك محمية</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-art">
+        <div class="globe"></div>
+        <div class="orbit"></div>
+        <div class="orbit two"></div>
+
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="otp-box">
+              <small data-i18n="hero_otp_label">رمز التحقق</small>
+              <strong>482 915</strong>
+            </div>
+            <div class="shield-mini">✓</div>
+          </div>
+        </div>
+
+        <div class="channel one">
+          <div class="channel-icon">💬</div>
+          <strong>SMS</strong>
+        </div>
+        <div class="channel two">
+          <div class="channel-icon">◉</div>
+          <strong>WhatsApp</strong>
+        </div>
+        <div class="channel three">
+          <div class="channel-icon">✉</div>
+          <strong>Email</strong>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <div class="features" id="features">
-    <div class="feature-card">
-      <h3>📱 واتساب</h3>
-      <p>أرسل رموز التحقق مباشرة عبر واتساب برساله جاهزة أو مخصصة.</p>
-    </div>
-    <div class="feature-card">
-      <h3>✉️ إيميل</h3>
-      <p>تحقق فوري عبر البريد الإلكتروني لعملائك حول العالم.</p>
-    </div>
-    <div class="feature-card">
-      <h3>💬 SMS</h3>
-      <p>تكامل مباشر مع Twilio وبوابات SMS المحلية.</p>
-    </div>
-    <div class="feature-card">
-      <h3>📊 لوحة تحكم كاملة</h3>
-      <p>تابع رصيدك، عملاءك، وتواصل مع فريق الدعم من مكان واحد.</p>
-    </div>
-  </div>
-
-  <div class="pkg-section">
+  <!-- SERVICES -->
+  <section class="services" id="services">
     <div class="container">
-      <h2>الباكدجات</h2>
-      <p class="pkg-sub">اختار الباقة المناسبة لحجم أعمالك</p>
-      <div class="grid pkg-grid" id="packagesGrid"></div>
+      <div class="section-heading">
+        <div class="eyebrow" data-i18n="services_eyebrow">خدماتنا</div>
+        <h2 data-i18n="services_title">منصة واحدة، قنوات متعددة</h2>
+        <p data-i18n="services_sub">اختار أفضل طريقة لتوصيل رموز التحقق لعملائك، بمعدلات نجاح عالية وتسليم فوري.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="feature-card service-card">
+          <div class="service-icon">📱</div>
+          <h3 data-i18n="svc_whatsapp_title">واتساب</h3>
+          <p data-i18n="svc_whatsapp_desc">أرسل رموز التحقق مباشرة عبر واتساب برسالة جاهزة أو مخصصة.</p>
+        </div>
+        <div class="feature-card service-card">
+          <div class="service-icon">✉️</div>
+          <h3 data-i18n="svc_email_title">إيميل</h3>
+          <p data-i18n="svc_email_desc">تحقق فوري عبر البريد الإلكتروني لعملائك حول العالم.</p>
+        </div>
+        <div class="feature-card service-card">
+          <div class="service-icon">💬</div>
+          <h3 data-i18n="svc_sms_title">SMS</h3>
+          <p data-i18n="svc_sms_desc">تكامل مباشر مع Twilio وبوابات SMS المحلية.</p>
+        </div>
+        <div class="feature-card service-card" id="api">
+          <div class="service-icon">📊</div>
+          <h3 data-i18n="svc_dash_title">لوحة تحكم و API كامل</h3>
+          <p data-i18n="svc_dash_desc">تابع رصيدك، عملاءك، وتكامل عبر API موثّق، من مكان واحد.</p>
+        </div>
+      </div>
     </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="pkg-section" id="packages">
+    <div class="container">
+      <div class="pkg-layout">
+
+        <div class="server-art">
+          <div class="server">
+            <div class="server-box"></div>
+            <div class="server-box"></div>
+            <div class="server-box"></div>
+          </div>
+          <div class="big-shield"></div>
+          <ul class="check-list">
+            <li data-i18n="check_realtime">تسليم فوري</li>
+            <li data-i18n="check_multichannel">قنوات متعددة</li>
+            <li data-i18n="check_failover">دعم Failover</li>
+            <li data-i18n="check_logs">سجلات تفصيلية</li>
+            <li data-i18n="check_support">دعم 24/7</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="pkg-heading">
+            <div class="eyebrow" data-i18n="pkg_eyebrow">باقاتنا</div>
+            <h2 data-i18n="pkg_title">خطط مرنة لكل حجم أعمال</h2>
+            <p data-i18n="pkg_sub">اختار الباقة المناسبة لحجم أعمالك — وسّع أو قلّل في أي وقت.</p>
+          </div>
+          <div class="price-grid" id="packagesGrid"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-box" id="about">
+    <h2 data-i18n="cta_box_title">جاهز تبدأ التحقق من عملائك؟</h2>
+    <p data-i18n="cta_box_sub">ابدأ إرسال رموز OTP الآمنة حول العالم مع OTP Provider.</p>
+    <a href="/register.html" class="btn btn-primary" data-i18n="cta_box_btn">أنشئ حسابك المجاني →</a>
   </div>
 
-  <footer class="site-footer">
+  <footer class="site-footer" id="contact">
     <div class="footer-grid">
       <div class="footer-col">
         <h4>OTP Provider</h4>
-        <p>منصة واحدة لتحقق عملائك عبر واتساب، إيميل وSMS بثقة وسرعة.</p>
+        <p data-i18n="footer_about">منصة واحدة لتحقق عملائك عبر واتساب، إيميل وSMS بثقة وسرعة.</p>
       </div>
       <div class="footer-col">
-        <h4>الخدمة</h4>
-        <a href="/pricing.html">الأسعار</a>
-        <a href="/register.html">ابدأ الآن</a>
-        <a href="/login.html">تسجيل الدخول</a>
+        <h4 data-i18n="footer_service">الخدمة</h4>
+        <a href="/pricing.html" data-i18n="pricing_title">الأسعار</a>
+        <a href="/register.html" data-i18n="footer_start">ابدأ الآن</a>
+        <a href="/login.html" data-i18n="nav_login">تسجيل الدخول</a>
       </div>
       <div class="footer-col">
-        <h4>القنوات</h4>
-        <a href="#features">واتساب</a>
-        <a href="#features">إيميل</a>
-        <a href="#features">SMS</a>
+        <h4 data-i18n="footer_channels">القنوات</h4>
+        <a href="#services" data-i18n="svc_whatsapp_title">واتساب</a>
+        <a href="#services" data-i18n="svc_email_title">إيميل</a>
+        <a href="#services" data-i18n="svc_sms_title">SMS</a>
       </div>
       <div class="footer-col">
-        <h4>الدعم</h4>
-        <a href="/login.html">تواصل مع الدعم</a>
-        <a href="/register.html">إنشاء حساب</a>
+        <h4 data-i18n="footer_support">الدعم</h4>
+        <a href="/login.html" data-i18n="footer_contact_support">تواصل مع الدعم</a>
+        <a href="/register.html" data-i18n="footer_create_account">إنشاء حساب</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer_follow">تابعنا</h4>
+        <div class="social">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="X">𝕏</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Telegram">➤</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      © <span id="footerYear"></span> OTP Provider — جميع الحقوق محفوظة
+      <span>© <span id="footerYear"></span> OTP Provider — <span data-i18n="footer_rights">جميع الحقوق محفوظة</span></span>
+      <span data-i18n="footer_tagline">شريكك الموثوق للتحقق حول العالم</span>
     </div>
   </footer>
 
@@ -105,12 +270,14 @@
         const packages = await apiFetch("/packages");
         const labels = { whatsapp: "واتساب", sms: "SMS", email: "إيميل", bundle: "باكدج مجمع" };
         const grid = document.getElementById("packagesGrid");
-        grid.innerHTML = packages.map(p => `
-          <div class="card">
-            <span class="badge badge-pending">${labels[p.channel] || p.channel || ""}</span>
+        grid.innerHTML = packages.map((p, i) => `
+          <div class="price-card ${i === 1 ? "popular" : ""}">
+            ${i === 1 ? '<div class="popular-tag">الأكثر طلبًا</div>' : ""}
+            <span class="chan-tag">${labels[p.channel] || p.channel || ""}</span>
             <h3>${p.name}</h3>
-            <p style="color:var(--muted)">${p.description}</p>
-            <div class="stat">${p.price} ${p.currency}</div>
+            <div class="desc">${p.description || ""}</div>
+            <div class="price">${p.price} <small>${p.currency}</small></div>
+            <a href="/register.html" class="btn btn-primary">ابدأ الآن</a>
           </div>
         `).join("");
       } catch (e) { console.error(e); }
