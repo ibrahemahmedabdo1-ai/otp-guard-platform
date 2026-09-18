@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة الدعم — OTP Guard</title>
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="dash-layout">
+    <aside class="sidebar">
+      <div class="logo"><img src="/assets/img/logo.svg" alt="OTP Guard"></div>
+      <a href="#" class="active" data-tab="clients">👥 العملاء</a>
+      <a href="#" data-tab="tickets">🎫 تذاكر العملاء</a>
+      <a href="#" data-tab="adminchat">🛡️ الدردشة مع الأدمن</a>
+      <a href="#" onclick="logout()">🚪 تسجيل خروج</a>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <h1 id="pageTitle">العملاء</h1>
+        <span id="userName" style="color:var(--muted);font-size:13px;"></span>
+      </div>
+
+      <section id="tab-clients">
+        <table>
+          <thead><tr><th>الاسم</th><th>الإيميل</th><th>الدولة</th><th>الرصيد</th><th></th></tr></thead>
+          <tbody id="clientsBody"></tbody>
+        </table>
+
+        <div id="clientProfile" style="margin-top:24px;display:none;">
+          <div class="card">
+            <h3 id="cpName"></h3>
+            <p style="color:var(--muted);font-size:13px;" id="cpEmail"></p>
+            <button class="btn btn-primary btn-sm" onclick="detectErrors()">🔍 اكتشاف الأخطاء</button>
+            <div id="issuesBox" style="margin-top:14px;"></div>
+          </div>
+          <div class="card" style="margin-top:16px;">
+            <h4>الخدمات</h4>
+            <table><thead><tr><th>الاسم</th><th>القناة</th><th>الحالة</th><th>النوع</th></tr></thead>
+            <tbody id="cpServices"></tbody></table>
+          </div>
+          <div class="card" style="margin-top:16px;">
+            <h4>سجل التحقق</h4>
+            <table><thead><tr><th>القناة</th><th>المستلم</th><th>الحالة</th></tr></thead>
+            <tbody id="cpVerifications"></tbody></table>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-tickets" style="display:none;">
+        <div style="display:flex;gap:16px;">
+          <div style="width:240px;">
+            <div id="ticketsList"></div>
+          </div>
+          <div style="flex:1;">
+            <div class="chat-box">
+              <div class="chat-messages" id="chatMessages"></div>
+              <div class="chat-input">
+                <input type="file" id="chatFile" style="max-width:110px;">
+                <input type="text" id="chatText" placeholder="اكتب رسالتك...">
+                <button class="btn btn-primary btn-sm" onclick="sendTicketMessage()">إرسال</button>
+                <button class="btn btn-outline btn-sm" onclick="resolveTicket()">إغلاق</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tab-adminchat" style="display:none;">
+        <div class="chat-box">
+          <div class="chat-messages" id="adminChatMessages"></div>
+          <div class="chat-input">
+            <input type="text" id="adminChatText" placeholder="راسل الأدمن...">
+            <button class="btn btn-primary btn-sm" onclick="sendAdminMessage()">إرسال</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/support.js"></script>
+</body>
+</html>

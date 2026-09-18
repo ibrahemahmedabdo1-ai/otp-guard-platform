@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة الأدمن — OTP Guard</title>
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="dash-layout">
+    <aside class="sidebar">
+      <div class="logo"><img src="/assets/img/logo.svg" alt="OTP Guard"></div>
+      <a href="#" class="active" data-tab="clients">👥 العملاء والخدمات</a>
+      <a href="#" data-tab="packages">📦 الباكدجات</a>
+      <a href="#" data-tab="pricing">💲 التسعير</a>
+      <a href="#" data-tab="templates">📝 قوالب OTP</a>
+      <a href="#" data-tab="whatsapp">📱 ربط واتساب</a>
+      <a href="#" data-tab="settings">⚙️ إعدادات الربط</a>
+      <a href="#" data-tab="languages">🌐 اللغات</a>
+      <a href="#" data-tab="team">👤 المستخدمون</a>
+      <a href="#" data-tab="tickets">🎫 كل التذاكر</a>
+      <a href="#" data-tab="health">🔍 اكتشاف الأخطاء</a>
+      <a href="#" onclick="logout()">🚪 تسجيل خروج</a>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <h1 id="pageTitle">العملاء والخدمات</h1>
+        <span id="userName" style="color:var(--muted);font-size:13px;"></span>
+      </div>
+
+      <!-- العملاء والخدمات -->
+      <section id="tab-clients">
+        <table>
+          <thead><tr><th>الاسم</th><th>الإيميل</th><th>الرصيد</th><th></th><th></th></tr></thead>
+          <tbody id="clientsBody"></tbody>
+        </table>
+        <div id="clientServicesBox" style="margin-top:20px;display:none;">
+          <div class="card">
+            <h4>خدمات العميل: <span id="csClientName"></span></h4>
+            <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
+              <input type="text" id="newServiceName" placeholder="اسم الخدمة" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+              <select id="newServiceChannel" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+                <option value="whatsapp">واتساب</option>
+                <option value="sms">SMS</option>
+                <option value="email">إيميل</option>
+              </select>
+              <select id="newServiceBilling" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+                <option value="paid">مدفوع</option>
+                <option value="free">مجاني</option>
+              </select>
+              <button class="btn btn-primary btn-sm" onclick="addService()">+ إضافة خدمة</button>
+            </div>
+            <table>
+              <thead><tr><th>الاسم</th><th>القناة</th><th>الحالة</th><th>النوع</th><th></th></tr></thead>
+              <tbody id="servicesBody"></tbody>
+            </table>
+          </div>
+          <div class="card" style="margin-top:16px;">
+            <h4>رسائل الاختبار المجانية</h4>
+            <p style="font-size:12px;color:var(--muted);">تحكم في عدد رسائل الاختبار المجانية لكل قناة، أو أوقفها تمامًا.</p>
+            <div id="allowanceControls"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- الباكدجات -->
+      <section id="tab-packages" style="display:none;">
+        <div class="card" style="margin-bottom:16px;">
+          <h4>إضافة باكدج جديد</h4>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <input id="pkgName" placeholder="الاسم" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+            <select id="pkgChannel" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+              <option value="whatsapp">واتساب فقط</option>
+              <option value="sms">SMS فقط</option>
+              <option value="email">إيميل فقط</option>
+              <option value="bundle">باكدج مجمع (كل القنوات)</option>
+            </select>
+            <input id="pkgCredits" type="number" placeholder="عدد العمليات" style="padding:8px;border-radius:8px;border:1px solid var(--border);width:130px;">
+            <input id="pkgPrice" type="number" placeholder="السعر" style="padding:8px;border-radius:8px;border:1px solid var(--border);width:100px;">
+            <input id="pkgDesc" placeholder="الوصف" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+            <button class="btn btn-primary btn-sm" onclick="addPackage()">+ إضافة</button>
+          </div>
+        </div>
+        <div class="grid" id="packagesGrid"></div>
+      </section>
+
+      <!-- التسعير: سعر الرسالة / 10 / 100 لكل قناة على حدة -->
+      <section id="tab-pricing" style="display:none;">
+        <p style="color:var(--muted);font-size:13px;">هذه الأسعار تظهر للعامة في صفحة <a href="/pricing.html" target="_blank" style="color:var(--primary)">/pricing.html</a></p>
+        <div id="pricingBox"></div>
+      </section>
+
+      <!-- قوالب OTP -->
+      <section id="tab-templates" style="display:none;">
+        <div id="templatesBox"></div>
+      </section>
+
+      <!-- ربط واتساب -->
+      <section id="tab-whatsapp" style="display:none;">
+        <div class="card">
+          <h3>ربط رقم واتساب عبر QR</h3>
+          <p style="color:var(--muted);font-size:13px;">امسح الكود من تطبيق واتساب بيزنس على هاتفك (الأجهزة المرتبطة ← ربط جهاز).</p>
+          <div id="waStatus" style="margin-bottom:12px;"></div>
+          <button class="btn btn-primary btn-sm" onclick="connectWhatsapp()">توليد QR للربط</button>
+          <div class="qr-box" id="qrBox"></div>
+        </div>
+      </section>
+
+      <!-- إعدادات الربط -->
+      <section id="tab-settings" style="display:none;">
+        <div class="card">
+          <h3>حالة تكامل القنوات</h3>
+          <p style="font-size:13px;color:var(--muted);">
+            القنوات تُفعّل عبر ملف <code>.env</code> في السيرفر (Twilio, IMS, SMTP). أضف المفاتيح ثم أعد تشغيل السيرفر.
+          </p>
+          <table>
+            <tbody>
+              <tr><td>Twilio SMS</td><td id="chk-twilio-sms">-</td></tr>
+              <tr><td>Twilio WhatsApp</td><td id="chk-twilio-wa">-</td></tr>
+              <tr><td>بوابة IMS / SMS محلية</td><td id="chk-ims">-</td></tr>
+              <tr><td>SMTP (إيميل)</td><td id="chk-smtp">-</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- اللغات -->
+      <section id="tab-languages" style="display:none;">
+        <div id="languagesBox"></div>
+      </section>
+
+      <!-- المستخدمون: عملاء / سبورت / أدمن -->
+      <section id="tab-team" style="display:none;">
+        <div class="card" style="margin-bottom:16px;">
+          <h4>إضافة مستخدم جديد</h4>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <input id="staffName" placeholder="الاسم" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+            <input id="staffEmail" placeholder="الإيميل" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+            <input id="staffPassword" type="password" placeholder="كلمة المرور" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+            <select id="staffRole" style="padding:8px;border-radius:8px;border:1px solid var(--border);">
+              <option value="client">عميل</option>
+              <option value="support">سبورت</option>
+              <option value="admin">أدمن</option>
+            </select>
+            <button class="btn btn-primary btn-sm" onclick="addStaff()">+ إضافة</button>
+          </div>
+        </div>
+        <table>
+          <thead><tr><th>الاسم</th><th>الإيميل</th><th>الدور</th><th></th></tr></thead>
+          <tbody id="staffBody"></tbody>
+        </table>
+      </section>
+
+      <!-- كل التذاكر -->
+      <section id="tab-tickets" style="display:none;">
+        <table>
+          <thead><tr><th>الموضوع</th><th>الحالة</th><th>التاريخ</th></tr></thead>
+          <tbody id="allTicketsBody"></tbody>
+        </table>
+      </section>
+
+      <!-- اكتشاف الأخطاء على مستوى النظام -->
+      <section id="tab-health" style="display:none;">
+        <div class="card">
+          <button class="btn btn-primary btn-sm" onclick="detectSystemErrors()">🔍 فحص النظام الآن</button>
+          <div id="systemIssuesBox" style="margin-top:16px;"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/admin.js"></script>
+</body>
+</html>

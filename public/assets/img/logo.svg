@@ -1,0 +1,36 @@
+<svg width="220" height="60" viewBox="0 0 220 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0EA5A5"/>
+      <stop offset="100%" stop-color="#155E75"/>
+    </linearGradient>
+    <linearGradient id="dotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#0EA5A5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Shield mark -->
+  <g transform="translate(4,4)">
+    <path d="M26 2 L48 10 V26 C48 40 38 49 26 54 C14 49 4 40 4 26 V10 Z"
+          fill="url(#shieldGrad)"/>
+    <!-- checkmark -->
+    <path d="M15 27 L22 34 L38 17" stroke="#F0FDFA" stroke-width="4.5"
+          stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- signal dots representing multi-channel (WhatsApp/SMS/Email) -->
+    <circle cx="26" cy="8" r="2.6" fill="#F0FDFA" opacity="0.9"/>
+  </g>
+
+  <!-- connection dots orbiting (multi-channel concept) -->
+  <circle cx="58" cy="16" r="3" fill="url(#dotGrad)"/>
+  <circle cx="58" cy="30" r="3" fill="url(#dotGrad)" opacity="0.65"/>
+  <circle cx="58" cy="44" r="3" fill="url(#dotGrad)" opacity="0.4"/>
+
+  <!-- Wordmark -->
+  <text x="72" y="34" font-family="'Segoe UI', 'Cairo', Arial, sans-serif" font-size="22" font-weight="700" fill="#0F172A">
+    OTP<tspan fill="#0EA5A5">Guard</tspan>
+  </text>
+  <text x="72" y="48" font-family="'Segoe UI', 'Cairo', Arial, sans-serif" font-size="9" fill="#64748B" letter-spacing="1.5">
+    VERIFY WITH CONFIDENCE
+  </text>
+</svg>

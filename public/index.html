@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTP Guard — تحقق من عملائك بثقة</title>
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo"><img src="/assets/img/logo.svg" alt="OTP Guard"></div>
+    <div class="nav-links">
+      <select id="langSelect" class="lang-select">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+      </select>
+      <a href="/pricing.html" class="btn btn-outline" data-i18n="pricing_title">الأسعار</a>
+      <a href="/login.html" class="btn btn-outline" data-i18n="nav_login">تسجيل الدخول</a>
+      <a href="/register.html" class="btn btn-primary" data-i18n="nav_register">حساب جديد</a>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1 data-i18n="landing_title">تحقق من عملائك بثقة عبر واتساب، إيميل أو SMS</h1>
+    <p data-i18n="landing_subtitle">منصة واحدة تربط شركتك بعملائها للتحقق الفوري من الهوية ورقم الهاتف</p>
+    <a href="/register.html" class="btn btn-primary" data-i18n="cta_start">ابدأ الآن مجانًا</a>
+  </section>
+
+  <div class="features" id="features">
+    <div class="feature-card">
+      <h3>📱 واتساب</h3>
+      <p>أرسل رموز التحقق مباشرة عبر واتساب برساله جاهزة أو مخصصة.</p>
+    </div>
+    <div class="feature-card">
+      <h3>✉️ إيميل</h3>
+      <p>تحقق فوري عبر البريد الإلكتروني لعملائك حول العالم.</p>
+    </div>
+    <div class="feature-card">
+      <h3>💬 SMS</h3>
+      <p>تكامل مباشر مع Twilio وبوابات SMS المحلية.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📊 لوحة تحكم كاملة</h3>
+      <p>تابع رصيدك، عملاءك، وتواصل مع فريق الدعم من مكان واحد.</p>
+    </div>
+  </div>
+
+  <div class="container" style="padding-bottom:60px;">
+    <h2 style="text-align:center;margin-bottom:24px;">الباكدجات</h2>
+    <div class="grid" id="packagesGrid"></div>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/i18n.js"></script>
+  <script>
+    (async () => {
+      try {
+        const packages = await apiFetch("/packages");
+        const labels = { whatsapp: "واتساب", sms: "SMS", email: "إيميل", bundle: "باكدج مجمع" };
+        const grid = document.getElementById("packagesGrid");
+        grid.innerHTML = packages.map(p => `
+          <div class="card">
+            <span class="badge badge-pending">${labels[p.channel] || p.channel || ""}</span>
+            <h3>${p.name}</h3>
+            <p style="color:var(--muted)">${p.description}</p>
+            <div class="stat">${p.price} ${p.currency}</div>
+          </div>
+        `).join("");
+      } catch (e) { console.error(e); }
+    })();
+  </script>
+</body>
+</html>

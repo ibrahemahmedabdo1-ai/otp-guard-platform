@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة العميل — OTP Guard</title>
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <div class="dash-layout">
+    <aside class="sidebar">
+      <div class="logo"><img src="/assets/img/logo.svg" alt="OTP Guard"></div>
+      <a href="#" class="active" data-tab="overview">📊 الرئيسية</a>
+      <a href="#" data-tab="packages">📦 الباكدجات</a>
+      <a href="#" data-tab="test">🧪 اختبار إرسال</a>
+      <a href="#" data-tab="customers">👥 عملاؤك</a>
+      <a href="#" data-tab="support">💬 الدعم</a>
+      <a href="/pricing.html" target="_blank">💲 الأسعار</a>
+      <a href="#" onclick="logout()">🚪 تسجيل خروج</a>
+    </aside>
+
+    <main class="main">
+      <div class="topbar">
+        <h1 id="pageTitle">الرئيسية</h1>
+        <div><span id="userName" style="color:var(--muted);font-size:13px;"></span></div>
+      </div>
+
+      <section id="tab-overview">
+        <div class="grid">
+          <div class="card"><div class="label">الرصيد المتاح</div><div class="stat" id="statBalance">0</div></div>
+          <div class="card"><div class="label">إجمالي عمليات التحقق</div><div class="stat" id="statVerifications">0</div></div>
+          <div class="card"><div class="label">الدولة</div><div class="stat" id="statCountry">-</div></div>
+        </div>
+        <div class="card">
+          <h3>كيف تربط مشروعك؟</h3>
+          <p style="color:var(--muted);font-size:14px;">
+            1. اشترِ باكدج رصيد من تبويب الباكدجات.<br>
+            2. استخدم زر "اختبار إرسال" للتأكد من وصول رمز التحقق لعميلك عبر واتساب/إيميل/SMS.<br>
+            3. بعد التأكد، استخدم بيانات الـ API الخاصة بحسابك من فريق الدعم لربطها بموقعك أو تطبيقك مباشرة.
+          </p>
+        </div>
+      </section>
+
+      <section id="tab-packages" style="display:none;">
+        <div class="grid" id="packagesGrid"></div>
+      </section>
+
+      <section id="tab-test" style="display:none;">
+        <div class="card" style="max-width:480px;">
+          <div id="allowanceBox" style="margin-bottom:14px;font-size:13px;"></div>
+          <div class="field">
+            <label>القناة</label>
+            <select id="testChannel">
+              <option value="whatsapp">واتساب</option>
+              <option value="sms">SMS</option>
+              <option value="email">إيميل</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>المستلم (رقم هاتف أو إيميل)</label>
+            <input type="text" id="testRecipient" placeholder="+201234567890 أو email@example.com">
+          </div>
+          <button class="btn btn-primary" onclick="sendTest()">إرسال اختبار</button>
+          <div id="testResult" style="margin-top:14px;font-size:13px;"></div>
+        </div>
+      </section>
+
+      <section id="tab-customers" style="display:none;">
+        <table>
+          <thead><tr><th>القناة</th><th>المستلم</th><th>الحالة</th><th>التاريخ</th></tr></thead>
+          <tbody id="customersBody"></tbody>
+        </table>
+      </section>
+
+      <section id="tab-support" style="display:none;">
+        <div class="card" style="margin-bottom:16px;">
+          <button class="btn btn-primary btn-sm" onclick="newTicket()">+ فتح تذكرة جديدة</button>
+        </div>
+        <div style="display:flex;gap:16px;">
+          <div style="width:220px;">
+            <div id="ticketsList"></div>
+          </div>
+          <div style="flex:1;">
+            <div class="chat-box">
+              <div class="chat-messages" id="chatMessages"></div>
+              <div class="chat-input">
+                <input type="file" id="chatFile" style="max-width:110px;">
+                <input type="text" id="chatText" placeholder="اكتب رسالتك...">
+                <button class="btn btn-primary btn-sm" onclick="sendMessage()">إرسال</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/client.js"></script>
+</body>
+</html>
